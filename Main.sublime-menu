@@ -1,0 +1,10 @@
+[
+{
+	"id" : "tools",
+	"children":
+	[
+		{"id" : "end"},
+		{"command" : "udp_trace", "caption": "Start UDP Trace"}
+	]
+}
+]
