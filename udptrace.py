@@ -58,7 +58,7 @@ class UdpTraceCommand(sublime_plugin.WindowCommand):
 		ipAddress = s.get("address","127.0.0.1")
 		portNo = s.get("port","1777")
 		bufferMode = s.get("buffer_mode","Packages/Text/Plain text.tmLanguage")
-		maxEntries = s.get("max_entries")
+		maxEntries = s.get("max_entries",100)
 		ok = True
 		for v in self.window.views():
 			# Don't run if we are already
