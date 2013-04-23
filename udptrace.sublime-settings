@@ -1,4 +1,6 @@
 {
+	// Override these in your own
+	// `Packages/User/udptrace.sublime-settings` file.
 	"address" : "127.0.0.1",
 	"port" : 1777,
 	"max_entries" : 100,

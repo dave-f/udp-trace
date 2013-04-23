@@ -56,13 +56,14 @@ class UdpTraceCommand(sublime_plugin.WindowCommand):
 		# Load our settings
 		s = sublime.load_settings("udptrace.sublime-settings")
 		ipAddress = s.get("address","127.0.0.1")
-		portNo = s.get("port","1777")
+		portNo = s.get("port",1777)
 		bufferMode = s.get("buffer_mode","Packages/Text/Plain text.tmLanguage")
 		maxEntries = s.get("max_entries",100)
 		ok = True
 		for v in self.window.views():
 			# Don't run if we are already
 			if (v.name() == "*UDP Trace*"):
+				self.window.focus_view(v)
 				ok = False
 				break
 
@@ -74,9 +75,7 @@ class UdpTraceCommand(sublime_plugin.WindowCommand):
 			quitEvent.clear()
 			t = UdpTraceThread(v, ipAddress, portNo, maxEntries)
 			t.start()
-		else:
-			sublime.error_message("Already active")
-
+	
 class CloseListener(sublime_plugin.EventListener):
 	def on_close(self, v):
 		if (v.name() == "*UDP Trace*"):
